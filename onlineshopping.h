@@ -92,8 +92,8 @@ void display()
 			}
 			cur=cur->addr;
 		}
-		printf("\n----------------------------------------------------------------------------------------------\n");
-		printf("Your Grand total is: %.2lf",ftotal);
+		printf("\n-------------------------------------------------------------------------------------------------------------------------------");
+		printf("\nYour Grand total is: %.2lf",ftotal);
 	}
 }
 void rem(int del)
@@ -122,5 +122,41 @@ void rem(int del)
 			printf("\nThe item you want to remove is not available in your cart!!\n");
 		}
 		system("pause");
+	}
+}
+void search(int id)
+{
+	if(front==NULL)
+	{
+		printf("\n**** Why is your cart empty? Take a look at some exclusive offers ****\n");
+	}
+	else
+	{
+		cur=front;
+		while(cur!=NULL && cur->ids!=id)
+		{
+			cur=cur->addr;
+		}
+		if(cur!=NULL)
+		{
+			printf("\nProduct ID \t Product name \t\t\t\t\t Price \t Quantity \tCgst(total) \tSgst(total) \tTotal");
+			printf("\n-------------------------------------------------------------------------------------------------------------------------------");
+			if(cur->ids <200 && cur->ids>100)
+			{
+				printf("\n%d\t\t %s \t\t\t\t\t%ld \t\t%d \t %.2f \t%.2f \t %.2lf",cur->ids,cur->brnd,cur->prices,cur->qty,cur->cgst,cur->sgst,cur->total);
+			}
+			else if(cur->ids>200 && cur->ids<300)
+			{
+				printf("\n%d\t\t %s \t%ld \t\t%d \t %.2f \t%.2f \t %.2lf",cur->ids,cur->brnd,cur->prices,cur->qty,cur->cgst,cur->sgst,cur->total);
+			}
+			else
+			{
+				printf("\n%d\t\t %s \t\t%ld \t\t%d \t %.2f \t%.2f \t %.2lf",cur->ids,cur->brnd,cur->prices,cur->qty,cur->cgst,cur->sgst,cur->total);
+			}
+		}
+		else
+		{
+			printf("Item Not Found!!!. Check the offer on your desired product ");
+		}
 	}
 }
