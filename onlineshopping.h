@@ -6,6 +6,8 @@ typedef struct Node
 {
 	int pass;
 	char name[20];
+	char address[100];
+	long pincode;
 	struct Node *addr;
 }Node;
 Node *start,*temp,*curr;
@@ -18,11 +20,13 @@ struct Cart
 	double total;
 	struct Cart *addr;
 }*front=NULL,*ptr,*cur;
-void create(char name[],int pas)
+void create(char name[],int pas,char ad[],int pin)
 {
 	temp=malloc(sizeof(struct Node));
 	strcpy(temp->name,name);
 	temp->pass=pas;
+	strcpy(temp->address,ad);
+	temp->pincode=pin;
 	temp->addr=NULL;
 	if(start==NULL)
 	{
