@@ -17,6 +17,7 @@ int main()
 	int i,j,qty,ids;
 	do
 	{
+		front=NULL;
 		system("CLS");
 		printf("\n\n\n\t\t\tEnter username:");
 		scanf("%s",name);
@@ -154,11 +155,11 @@ int main()
 			lable:
 			system("CLS");
 			display();
-			printf("\n\nDo you want to remove an item from cart? [y/n]:");
+			printf("\n\nDo you want to change quantity of an item from cart? [y/n]:");
 			scanf("%s",&ch2);
 			if(ch2=='y'||ch2=='Y')
 			{
-				printf("Enter the Product ID to remove it:");
+				printf("Enter the Product ID to change its quantity:");
 				scanf("%d",&del);
 				rem(del);
 				goto lable;
